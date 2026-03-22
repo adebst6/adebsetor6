@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+@font-face {
+  font-family: "Coolvetica";
+  src: local("Coolvetica"), local("Coolvetica Regular");
+  font-display: swap;
+}
+
+:root {
+  --bg: #dfe1d2;
+  --panel: #2c1f20;
+  --red: #d42017;
+  --cream: #ecebdd;
+  --border: rgba(255, 255, 255, 0.75);
+  --text: #f0f0e8;
+  --dark-text: #292527;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Coolvetica", "Arial Narrow", Arial, sans-serif;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  isolation: isolate;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("./fundo.png") center center / cover no-repeat;
+}
+
+.panel {
+  width: min(100%, 32rem);
+  min-height: 51.5rem;
+  padding: 2.2rem 2.8rem 3rem;
+  border: 1px solid var(--border);
+  background: #322122;
+}
+
+.brand-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.brand {
+  display: block;
+  width: 3.3rem;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin: 0.35rem 0 2.35rem;
+}
+
+.cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.95rem;
+  width: 100%;
+  min-height: 5.8rem;
+  padding: 1.15rem 1.35rem;
+  background: var(--red);
+  color: #fff;
+  text-decoration: none;
+}
+
+.cta:hover .cta-preview,
+.cta:focus-visible .cta-preview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cta-icon {
+  width: 1.38rem;
+  min-width: 1.38rem;
+  height: auto;
+  flex: 0 0 auto;
+  object-fit: contain;
+  align-self: center;
+}
+
+.cta-text {
+  width: min(100%, 19.45rem);
+  height: auto;
+  display: block;
+}
+
+.cta-preview {
+  position: absolute;
+  left: calc(100% + 1rem);
+  top: 0;
+  width: 15rem;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: #2c1f20;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.4rem);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.cta-preview::before {
+  content: "";
+  position: absolute;
+  top: 1.35rem;
+  left: -0.45rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  background: #2c1f20;
+  transform: rotate(45deg);
+}
+
+.cta-preview-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: #161010;
+}
+
+.section-title {
+  display: block;
+  width: min(100%, 15rem);
+  height: auto;
+  margin: 4.5rem auto 1.9rem;
+}
+
+.church-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.church-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.church-card {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.church-name {
+  position: absolute;
+  top: 50%;
+  left: 9.95rem;
+  right: 0.9rem;
+  transform: translateY(-50%);
+  color: var(--dark-text);
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  body {
+    overflow: auto;
+    background-position: 34% center;
+  }
+
+  .page {
+    padding: 1rem;
+  }
+
+  .panel {
+    min-height: auto;
+    padding: 1.6rem 1rem 1.8rem;
+  }
+
+  .brand {
+    width: 2.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    min-height: 4.45rem;
+    justify-content: center;
+    gap: 0.65rem;
+    padding: 0.95rem 0.85rem;
+  }
+
+  .cta-icon {
+    width: 1rem;
+    min-width: 1rem;
+  }
+
+  .cta-text {
+    width: min(100%, 14rem);
+  }
+
+  .cta-preview {
+    left: 50%;
+    top: calc(100% + 0.8rem);
+    width: min(15rem, calc(100vw - 3rem));
+    transform: translateX(-50%) translateY(0.4rem);
+  }
+
+  .cta:hover .cta-preview,
+  .cta:focus-visible .cta-preview {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .cta-preview::before {
+    top: -0.45rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(135deg);
+  }
+
+  .section-title {
+    width: min(100%, 12rem);
+    margin-top: 2.6rem;
+  }
+
+  .church-list {
+    gap: 0.75rem;
+  }
+
+  .church-item {
+    min-height: 0;
+  }
+
+  .church-name {
+    left: 9.2rem;
+    right: 0.9rem;
+    font-size: 0.76rem;
+    letter-spacing: -0.05em;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 460px) {
+  .church-name {
+    left: 8.15rem;
+    right: 0.75rem;
+    font-size: 0.7rem;
+  }
+}
